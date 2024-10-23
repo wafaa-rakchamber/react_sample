@@ -3,28 +3,26 @@ import {useEffect, useState} from "react";
 
 function App() {
 
-  const [emotion, setEmotion] = useState("Happy");
-  const [secondary, setSecondary] = useState("Tired");
+  const [checked, setChecked] = useState(false);
 
-
-  useEffect(()=> {
-    console.log(`it's ${emotion} right now`)
-  });
-  
-  useEffect(()=> {
-    console.log(`it's ${secondary} right now`)
-  },[secondary]);
 
   return (
     <div className="App">
-      <h1>{emotion} </h1>
-      <button onClick={()=> setEmotion('Sad')}>Sad</button>
-      <button onClick={()=> setEmotion('Excited')}>Excited</button>
-      <button onClick={()=> setEmotion('Happy')}>Happy</button>
+      <input 
+      type="checkbox"
+      value={checked}
+      onChange={()=>
+        setChecked((checked)=>! checked)
+      }
 
-      <h2>Current secondary emotion is {secondary}.</h2>
-      <button onClick={()=> setSecondary('Grateful')}>Grateful</button>
-      <button onClick={()=> setSecondary('Psyched')}>Psyched</button>
+      />
+
+      <label>
+        {checked? "checked" : "not checked"}
+      </label>
+
+
+
     </div>
   );
 }
