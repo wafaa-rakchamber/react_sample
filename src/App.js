@@ -7,7 +7,7 @@ function App() {
 
   useEffect(()=> {
     console.log(`it's ${emotion} right now`)
-  },[]);
+  },[emotion]);
 
   return (
     <div className="App">
