@@ -1,9 +1,11 @@
 import './App.css';
-import {useEffect, useState} from "react";
+import {useEffect, useReducer, useState} from "react";
 
 function App() {
 
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useReducer(
+    (checked)=>! checked,
+    false);
 
 
   return (
@@ -11,9 +13,7 @@ function App() {
       <input 
       type="checkbox"
       value={checked}
-      onChange={()=>
-        setChecked((checked)=>! checked)
-      }
+      onChange={setChecked}
 
       />
 
