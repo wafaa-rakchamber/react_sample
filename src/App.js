@@ -3,10 +3,6 @@ import {useEffect, useReducer, useRef, useState} from "react";
 
 function App() {
 
-  const [checked, setChecked] = useReducer(
-    (checked)=>! checked,
-    false);
-
     const txtTitle= useRef();
     const hexColor = useRef();
 
