@@ -6,10 +6,10 @@ import {useEffect, useState} from "react";
 function App() {
 
     const [data, setData]= useState();
-
+  const [username, setUserName] = useState("wafaa-rakchamber");
     useEffect(()=>{
       fetch(
-        `http://api.github.com/users/wafaa-rakchamber`
+        `http://api.github.com/users/${username}`
       ).then((response)=>response.json())
       .then(setData);
     },[]);
