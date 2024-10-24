@@ -5,12 +5,12 @@ import { useState, useEffect } from 'react';
 
 
 function GetCompanyData({ other_request_result }) {
-  
+
   return (
 
-   other_request_result.map(element => (
-    <p> {element.company_code} /// {element.company_name}</p>
-   ))
+    other_request_result.map(element => (
+      <p> {element.company_code} /// {element.company_name}</p>
+    ))
 
 
   );
@@ -34,17 +34,21 @@ function App() {
 
 
   useEffect(() => {
+
+    console.log(`testing`);
+
+
     // fetch(`https://api.github.com/users/saadcs7`)
     // https://chamber-test.com/ords/admin/view_all_req_list/pending_request_list?company_code=undefined&day_number=15
     setLoading(true);
-    fetch(`https://chamber-test.com/ords/admin/view_all_req_list/pending_request_list?company_code${companyCode}&day_number=${dayNumber}`)
+    fetch(`https://chamber-test.com/ords/admin/view_all_req_list/pending_request_list?company_code=${companyCode}&day_number=${dayNumber}`)
 
       .then((response) => response.json())
       .then(setData)
       .then(() => setLoading(false))
       .catch(setError);
 
-  }, []);
+  }, [companyCode]);
 
   if (loading) return <h1>Loading . . . </h1>;
   if (error) return <pre>{JSON.stringify(error)}</pre>;
@@ -52,14 +56,31 @@ function App() {
   if (!data) return null;
   //console.log(data.other_request_result);
 
-  
 
-return ( 
-   <GetCompanyData
-   other_request_result={data.other_request_result} 
-   />
-);
-// other_request_result={data.other_request_result} 
+
+  return (
+    <div>
+      <GetCompanyData
+        other_request_result={data.other_request_result}
+
+
+
+      />
+
+      <button onClick={(event) => {
+
+        setCompanyCode(2173);
+      }
+      }  >Search</button>
+
+
+    </div>
+
+
+  );
+  // other_request_result={data.other_request_result} 
+
+
 
 
 }
