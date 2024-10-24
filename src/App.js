@@ -7,12 +7,10 @@ import { useState, useEffect } from 'react';
 function GetCompanyData({ other_request_result }) {
   
   return (
-    other_request_result.forEach(element => {
-      console.log(element);
 
-       <p> {element}</p>
-
-   })
+   other_request_result.map(element => (
+    <p> {element.company_code} /// {element.company_name}</p>
+   ))
 
 
   );
@@ -58,10 +56,10 @@ function App() {
 
 return ( 
    <GetCompanyData
-      other_request_result={data.other_request_result} 
+   other_request_result={data.other_request_result} 
    />
 );
-
+// other_request_result={data.other_request_result} 
 
 
 }
