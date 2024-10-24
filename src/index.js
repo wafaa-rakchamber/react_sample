@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App, { About, Contact } from './App';
+import App, { About, Contact , History} from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -11,7 +11,12 @@ root.render(
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<App />} />
-      <Route path='/about' element={<About />} />
+      <Route path='/about' element={<About />}>
+        <Route
+          path='history'
+          element={<History />}
+        />
+      </Route>
       <Route path='/contactus' element={<Contact />} />
     </Routes>
     </BrowserRouter>

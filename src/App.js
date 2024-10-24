@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import './App.css';
 import {useEffect, useState} from "react";
 
@@ -23,11 +23,22 @@ export function About(){
         <Link to='/contactus'>Contact</Link>
       </nav>
       <h1>About Us</h1>
-
+      <Outlet/>
       
     </div>
   );
 }
+
+export function History(){
+  return(
+    <div>
+      <h1>Our History</h1>
+      
+    </div>
+  );
+}
+
+
 export function Contact(){
   return(
     <div>
