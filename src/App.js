@@ -36,8 +36,8 @@ function App() {
     if(data)
       return (
       <GitHubUser
-      name={data.name}
-      location={data.location}
+      name={data.login}
+      location={data.id}
       avatar={data.avatar_url}
       />
     );
