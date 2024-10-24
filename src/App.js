@@ -4,13 +4,16 @@ import { useState, useEffect } from 'react';
 
 
 
-function GetCompanyData({ company_name, company_code }) {
+function GetCompanyData({ other_request_result }) {
+  
   return (
-    <div>
-      <h1>{company_name}</h1>
-      <h1>{company_code}</h1>
+    other_request_result.forEach(element => {
+      console.log(element);
 
-    </div>
+       <p> {element}</p>
+
+   })
+
 
   );
 
@@ -49,17 +52,15 @@ function App() {
   if (error) return <pre>{JSON.stringify(error)}</pre>;
 
   if (!data) return null;
+  //console.log(data.other_request_result);
 
-  return (
+  
 
-    <GetCompanyData
-      company_name={data.coo_list_CR[0].company_name}
-      company_code={data.coo_list_CR[0].company_code}
-
-    />
-
-
-  )
+return ( 
+   <GetCompanyData
+      other_request_result={data.other_request_result} 
+   />
+);
 
 
 
